@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: ai-website-audit-backend
+    env: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn api:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: OPENROUTER_MODEL
+        value: openai/gpt-4.1-mini
+      - key: OPENROUTER_MAX_TOKENS
+        value: "420"
+      - key: OPENROUTER_RETRY_MAX_TOKENS
+        value: "700"
+      - key: OPENROUTER_TEMPERATURE
+        value: "0.1"

@@ -1,9 +1,9 @@
-"""Scraper module: fetches a webpage and extracts readable text content."""
+"""Scraper module: fetches webpage HTML and extracts readable text for analysis."""
 
 from __future__ import annotations
 
 import importlib
-from typing import Any, Dict
+from typing import Any, Dict, Tuple
 
 import requests
 from bs4 import BeautifulSoup
@@ -16,35 +16,34 @@ USER_AGENT = (
 )
 
 
-def fetch_html(url: str, timeout: int = DEFAULT_TIMEOUT_SECONDS) -> tuple[str, str]:
-    """Fetch raw HTML and return HTML plus final resolved URL."""
-    headers = {"User-Agent": USER_AGENT}
-    response = requests.get(url, headers=headers, timeout=timeout)
+def fetch_html(url: str, timeout: int = DEFAULT_TIMEOUT_SECONDS) -> Tuple[str, str]:
+    """Fetch raw HTML and return HTML plus the final resolved URL."""
+    response = requests.get(
+        url,
+        headers={"User-Agent": USER_AGENT},
+        timeout=timeout,
+    )
     response.raise_for_status()
     return response.text, response.url
 
 
 def extract_readable_text(html: str) -> str:
-    """Extract main readable text using readability and BeautifulSoup fallback parsing."""
+    """Extract readable text using readability-lxml when available, else fallback to full page text."""
     article_html = html
     try:
         readability_module = importlib.import_module("readability")
         document_class = getattr(readability_module, "Document", None)
         if document_class is not None:
-            doc = document_class(html)
-            article_html = doc.summary(html_partial=True)
+            article_html = document_class(html).summary(html_partial=True)
     except Exception:
-        # Fallback keeps scraping functional when readability is unavailable.
         article_html = html
 
     article_soup = BeautifulSoup(article_html, "html.parser")
-
-    # Keep text extraction simple and deterministic to avoid expensive downstream processing.
     return article_soup.get_text(separator=" ", strip=True)
 
 
 def scrape_page(url: str) -> Dict[str, Any]:
-    """Scrape a single webpage and return structured scraping artifacts."""
+    """Scrape a single page and return structured artifacts for metrics + AI analysis."""
     html, final_url = fetch_html(url)
     soup = BeautifulSoup(html, "html.parser")
     text = extract_readable_text(html)
