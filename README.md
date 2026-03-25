@@ -31,11 +31,12 @@ AI-Powered-Web-site-Audit-Tool/
 ├─ index.html
 ├─ requirements.txt
 ├─ .env.example
-├─ .env
 ├─ logs/
 └─ utils/
    └─ logs.py
 ```
+
+`.env` is local-only and is intentionally not committed.
 
 ## Prerequisites
 - Python 3.10+
@@ -147,6 +148,14 @@ Each audit writes a JSON log file in `logs/` containing:
 - `user_prompt`
 - `structured_model_input`
 - `raw_model_output`
+
+For this submission, the `logs/` folder is included in the repository so reviewers can inspect real sample outputs.
+
+## Submission Notes
+- Frontend is served from `/` using `index.html`.
+- Backend API endpoint is `POST /audit`.
+- Prompt/response logging is enabled by default in `logs/`.
+- `.env` is excluded from git; use `.env.example` for setup.
 
 ## Efficiency Notes
 - LLM input is compact and structured.
