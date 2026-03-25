@@ -1,4 +1,4 @@
-const BACKEND_BASE_URL = "hhttps://ai-powered-web-site-audit-tool.onrender.com";
+const BACKEND_BASE_URL = "https://ai-powered-web-site-audit-tool.onrender.com";
 
 function esc(value) {
   const stringValue = String(value == null ? "" : value);
@@ -80,7 +80,14 @@ async function runAudit() {
   analyzeBtn.disabled = true;
 
   try {
-    const endpoint = `${BACKEND_BASE_URL}/audit?url=${encodeURIComponent(url)}`;
+    let backendBase;
+    try {
+      backendBase = new URL(BACKEND_BASE_URL).origin;
+    } catch (_error) {
+      throw new Error("Frontend config error: BACKEND_BASE_URL is invalid.");
+    }
+
+    const endpoint = `${backendBase}/audit?url=${encodeURIComponent(url)}`;
     const response = await fetch(endpoint, { method: "GET" });
     const data = await response.json();
 
