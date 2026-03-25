@@ -1,0 +1,26 @@
+{
+  "timestamp_utc": "20260325T041733Z",
+  "system_prompt": "You are an expert website auditor. Return ONLY compact JSON with keys: ai_insights and recommendations. ai_insights must include seo_structure, messaging_clarity, cta_usage, content_depth, ux_concerns. Each ai_insights field must be under 35 words. recommendations must be 3 items ordered by priority (high to low). Each recommendation item must contain: priority, issue, action, rationale. Keep each recommendation concise. Ground every statement in provided metrics. No markdown. No extra keys.",
+  "user_prompt": "Analyze this single-page website audit payload and produce the required JSON only:\n{\"url\":\"https://openrouter.ai/\",\"metrics\":{\"url\":\"https://openrouter.ai/\",\"word_count\":19,\"heading_counts\":{\"h1\":1,\"h2\":2,\"h3\":24},\"cta_count\":20,\"internal_links\":65,\"external_links\":8,\"images\":41,\"images_missing_alt_pct\":0.0,\"meta_title\":\"OpenRouter\",\"meta_description\":\"The unified interface for LLMs. Find the best models & prices for your prompts\"},\"text_excerpt\":\"February Release Spotlight Benchmarks on model pages, a new free model router, and improved cost transparency between providers. 2/23/2026\"}",
+  "structured_model_input": {
+    "url": "https://openrouter.ai/",
+    "metrics": {
+      "url": "https://openrouter.ai/",
+      "word_count": 19,
+      "heading_counts": {
+        "h1": 1,
+        "h2": 2,
+        "h3": 24
+      },
+      "cta_count": 20,
+      "internal_links": 65,
+      "external_links": 8,
+      "images": 41,
+      "images_missing_alt_pct": 0.0,
+      "meta_title": "OpenRouter",
+      "meta_description": "The unified interface for LLMs. Find the best models & prices for your prompts"
+    },
+    "text_excerpt": "February Release Spotlight Benchmarks on model pages, a new free model router, and improved cost transparency between providers. 2/23/2026"
+  },
+  "raw_model_output": "{\"ai_insights\":{\"seo_structure\":\"Good meta title and description; heading structure is heavy on h3s with few h1/h2, which may affect SEO hierarchy.\",\"messaging_clarity\":\"Messaging is brief and somewhat vague with only 19 words, limiting user understanding.\",\"cta_usage\":\"High CTA count (20) for low content volume may overwhelm users.\",\"content_depth\":\"Extremely shallow content with only 19 words, lacking detail and context.\",\"ux_concerns\":\"Many images (41) with proper alt text; however, content scarcity and dense CTAs may confuse users.\"},\"recommendations\":[{\"priority\":\"high\",\"issue\":\"Insufficient content depth\",\"action\":\"Expand page content to provide detailed information about services and benefits.\",\"rationale\":\"Only 19 words limit user understanding and SEO effectiveness.\"},{\"priority\":\"medium\",\"issue\":\"Overuse of CTAs relative to content\",\"action\":\"Reduce and prioritize CTAs to align with expanded content and improve user focus.\",\"rationale\":\"20 CTAs overwhelm users given minimal content.\"},{\"priority\":\"low\",\"issue\":\"Heading structure imbalance\",\"action\":\"Reorganize headings to include more h1 and h2 tags for better SEO and readability.\",\"rationale\":\"Current heavy use of h3s weakens SEO hierarchy and clarity.\"}]}"
+}

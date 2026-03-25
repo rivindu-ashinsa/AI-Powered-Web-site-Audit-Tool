@@ -31,7 +31,6 @@ htmlcov/
 
 # Logs
 *.log
-logs/*.json
 
 # Editor / OS
 .vscode/

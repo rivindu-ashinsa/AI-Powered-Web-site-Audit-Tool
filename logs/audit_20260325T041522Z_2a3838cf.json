@@ -1,0 +1,26 @@
+{
+  "timestamp_utc": "20260325T041522Z",
+  "system_prompt": "You are an expert website auditor. Return ONLY compact JSON with keys: ai_insights and recommendations. ai_insights must include seo_structure, messaging_clarity, cta_usage, content_depth, ux_concerns. Each ai_insights field must be under 35 words. recommendations must be 3 items ordered by priority (high to low). Each recommendation item must contain: priority, issue, action, rationale. Keep each recommendation concise. Ground every statement in provided metrics. No markdown. No extra keys.",
+  "user_prompt": "Analyze this single-page website audit payload and produce the required JSON only:\n{\"url\":\"https://www.cognivusmed.com/\",\"metrics\":{\"url\":\"https://www.cognivusmed.com/\",\"word_count\":20,\"heading_counts\":{\"h1\":1,\"h2\":9,\"h3\":41},\"cta_count\":13,\"internal_links\":6,\"external_links\":14,\"images\":5,\"images_missing_alt_pct\":0.0,\"meta_title\":\"CognivusLabs - AI-Powered Continuous Health Monitoring & Automated Medicine Delivery\",\"meta_description\":\"Revolutionary AI-powered wearable health monitoring system with automated medication delivery. 24/7 vital signs tracking (ECG, SpO2, temperature) with intelligent predictive analytics. Transform healthcare with CognivusLabs.\"},\"text_excerpt\":\"\\\" Our mission is to make proactive, continuous healthcare accessible to everyone, everywhere, through the power of intelligent automation .\"}",
+  "structured_model_input": {
+    "url": "https://www.cognivusmed.com/",
+    "metrics": {
+      "url": "https://www.cognivusmed.com/",
+      "word_count": 20,
+      "heading_counts": {
+        "h1": 1,
+        "h2": 9,
+        "h3": 41
+      },
+      "cta_count": 13,
+      "internal_links": 6,
+      "external_links": 14,
+      "images": 5,
+      "images_missing_alt_pct": 0.0,
+      "meta_title": "CognivusLabs - AI-Powered Continuous Health Monitoring & Automated Medicine Delivery",
+      "meta_description": "Revolutionary AI-powered wearable health monitoring system with automated medication delivery. 24/7 vital signs tracking (ECG, SpO2, temperature) with intelligent predictive analytics. Transform healthcare with CognivusLabs."
+    },
+    "text_excerpt": "\" Our mission is to make proactive, continuous healthcare accessible to everyone, everywhere, through the power of intelligent automation ."
+  },
+  "raw_model_output": "{\"ai_insights\":{\"seo_structure\":\"Strong meta title and description; good heading hierarchy but very low word count limits SEO potential.\",\"messaging_clarity\":\"Mission statement is clear but overall content is minimal, reducing message impact.\",\"cta_usage\":\"High number of CTAs (13) for low content volume may overwhelm users.\",\"content_depth\":\"Extremely shallow content with only 20 words, insufficient for user engagement or SEO.\",\"ux_concerns\":\"Limited internal links and minimal content may hinder navigation and user understanding.\"},\"recommendations\":[{\"priority\":\"high\",\"issue\":\"Insufficient content depth\",\"action\":\"Expand website content to provide detailed information about products and services.\",\"rationale\":\"20 words is too low for SEO and user engagement; richer content improves clarity and search rankings.\"},{\"priority\":\"medium\",\"issue\":\"Overuse of CTAs relative to content\",\"action\":\"Reduce and prioritize CTAs to align with expanded content and user journey.\",\"rationale\":\"13 CTAs with minimal content can confuse users and dilute conversion focus.\"},{\"priority\":\"low\",\"issue\":\"Limited internal linking\",\"action\":\"Increase internal links to related sections or resources within the site.\",\"rationale\":\"Only 6 internal links restrict navigation and SEO link equity distribution.\"}]}"
+}

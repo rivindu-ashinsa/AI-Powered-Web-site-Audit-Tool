@@ -1,0 +1,26 @@
+{
+  "timestamp_utc": "20260325T042121Z",
+  "system_prompt": "You are an expert website auditor. Return ONLY compact JSON with keys: ai_insights and recommendations. ai_insights must include seo_structure, messaging_clarity, cta_usage, content_depth, ux_concerns. Each ai_insights field must be under 35 words. recommendations must be 3 items ordered by priority (high to low). Each recommendation item must contain: priority, issue, action, rationale. Keep each recommendation concise. Ground every statement in provided metrics. No markdown. No extra keys.",
+  "user_prompt": "Analyze this single-page website audit payload and produce the required JSON only:\n{\"url\":\"https://rivindu-ashinsa.github.io/\",\"metrics\":{\"url\":\"https://rivindu-ashinsa.github.io/\",\"word_count\":36,\"heading_counts\":{\"h1\":1,\"h2\":8,\"h3\":29},\"cta_count\":9,\"internal_links\":2,\"external_links\":18,\"images\":14,\"images_missing_alt_pct\":0.0,\"meta_title\":\"Rivindu Ashinsa | ML Engineer & Data Scientist Portfolio\",\"meta_description\":\"Rivindu Ashinsa is a Machine Learning Engineer and Data Scientist specializing in AI, deep learning, and predictive analytics. Explore projects, certifications, and achievements.\"},\"text_excerpt\":\"Rivindu Ashinsa | ML Engineer & Data Scientist Rivindu Ashinsa Machine Learning Engineer & Data Scientist specializing in AI, deep learning, and predictive analytics. Western Province, Sri Lanka Python \\u2022 SQL \\u2022 Analytics Open to internships\"}",
+  "structured_model_input": {
+    "url": "https://rivindu-ashinsa.github.io/",
+    "metrics": {
+      "url": "https://rivindu-ashinsa.github.io/",
+      "word_count": 36,
+      "heading_counts": {
+        "h1": 1,
+        "h2": 8,
+        "h3": 29
+      },
+      "cta_count": 9,
+      "internal_links": 2,
+      "external_links": 18,
+      "images": 14,
+      "images_missing_alt_pct": 0.0,
+      "meta_title": "Rivindu Ashinsa | ML Engineer & Data Scientist Portfolio",
+      "meta_description": "Rivindu Ashinsa is a Machine Learning Engineer and Data Scientist specializing in AI, deep learning, and predictive analytics. Explore projects, certifications, and achievements."
+    },
+    "text_excerpt": "Rivindu Ashinsa | ML Engineer & Data Scientist Rivindu Ashinsa Machine Learning Engineer & Data Scientist specializing in AI, deep learning, and predictive analytics. Western Province, Sri Lanka Python \u2022 SQL \u2022 Analytics Open to internships"
+  },
+  "raw_model_output": "{\"ai_insights\":{\"seo_structure\":\"Good meta title and description; excessive h3 tags may dilute SEO focus.\",\"messaging_clarity\":\"Clear professional identity but very limited textual content reduces message depth.\",\"cta_usage\":\"High number of CTAs (9) but low word count may confuse users or dilute impact.\",\"content_depth\":\"Extremely low word count (36 words) limits content richness and engagement.\",\"ux_concerns\":\"Few internal links (2) and many external links (18) may disrupt user flow; good image alt usage.\"},\"recommendations\":[{\"priority\":\"high\",\"issue\":\"Insufficient content depth\",\"action\":\"Expand textual content to provide detailed information about skills, projects, and experience.\",\"rationale\":\"36 words is too low for engagement and SEO; richer content improves user understanding and search rankings.\"},{\"priority\":\"medium\",\"issue\":\"Overuse of h3 headings\",\"action\":\"Consolidate or reduce h3 headings to improve content hierarchy and SEO clarity.\",\"rationale\":\"29 h3 tags overwhelm structure and dilute SEO focus; better heading hierarchy aids readability and SEO.\"},{\"priority\":\"low\",\"issue\":\"Imbalanced link distribution\",\"action\":\"Increase internal links and reduce external links to improve site navigation and user retention.\",\"rationale\":\"Only 2 internal links limit navigation; 18 external links may lead users away prematurely.\"}]}"
+}
