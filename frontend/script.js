@@ -1,4 +1,4 @@
-const BACKEND_BASE_URL = "https://YOUR-RENDER-APP.onrender.com";
+const BACKEND_BASE_URL = "hhttps://ai-powered-web-site-audit-tool.onrender.com";
 
 function esc(value) {
   const stringValue = String(value == null ? "" : value);
